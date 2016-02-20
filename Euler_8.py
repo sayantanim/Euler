@@ -50,11 +50,8 @@ def pro(num, n):
         return 'Length of number should be greater than n. n must always be a natural number.'
 
 
-print(pro("731671765313306249192251196744265", 5))
-
-
 def test_euler_8():
     assert pro("731671765313306249192251196744265", 5) == 6048
-    assert pro("731671765313306249192251196744265",
-               -5) == "Length of number should be greater than n. n must always be a natural number."
+    assert pro("731671765313306249192251196744265", -5) == \
+           "Length of number should be greater than n. n must always be a natural number."
     assert pro("7316", 5) == "Length of number should be greater than n. n must always be a natural number."
