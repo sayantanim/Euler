@@ -5,7 +5,7 @@ product?'''
 '''Mathematical method: Say n = 4. Product 1 = 7*3*1*6; Product 2 = 3*1*6*7; and so on.... Thus the last time this 
 multiplication will be performed is when there are just 4 digits left at the end. '''
 
-
+'''Version 1:'''
 # def pro(dig, n):
 #     gre_pro = 0  # Minimum product is zero for natural numbers. Hence starting with 0
 #     for i in range(0, len(dig) - n):  # Assume each digit as a single entity and hence each has an index. And the
@@ -20,22 +20,31 @@ multiplication will be performed is when there are just 4 digits left at the end
 #             gre_pro = prod  # If current product is greater, then replace greater product with current product
 #     return gre_pro
 
-
+'''Version 2:'''
 def pro(num, n):
+    """
+
+    :param num: Number for which product of adjacent digits have to be found.
+    :param n: Number of adjacent digits to find product.
+    :return: Maximum product of adjacent digits.
+    """
     gre_pro = 0  # Minimum product is zero for natural numbers. Hence starting with 0
-    if n >= 0 and len(num) >= n:
-        for i in range(0, len(num) - n):  # Assume each digit as a single entity and hence each has an index. And the
-            # maximum range can be the length of the given number minus the number of adjacent digits to be multiplied.
+    if len(num) >= n >= 0:
+        for i in range(0, len(num) - n):
+            # Assume each digit as a single entity and hence each has an index. And the maximum range can be the
+            # length of the given number minus the number of adjacent digits to be multiplied.
             # Thus i is the index of each digit.
             prod = 1  # if this is 0, product will always remain to be '0'
-            for j in range(i,
-                           i + n):  # Calculation for product of n adjacent numbers is "731671.." followed by
-                # "361717..."
+            for j in range(i, i + n):
+                # Calculation for product of n adjacent numbers is "731671.." followed by "361717..."
                 # followed by "617176..." and so on. Hence the range starts from index i and ends at index i+n.
-                prod *= int(num[j:j + 1])  # The multiplication starts with the 1st number, i.e., current index j and
+                prod *= int(num[j:j + 1])
+                # The multiplication starts with the 1st number, i.e., current index j and
                 # the next index j+1 and continues till it reaches i+n
-            if prod > gre_pro:  # Check if current product is greater than the previous product
-                gre_pro = prod  # If current product is greater, then replace greater product with current product
+            if prod > gre_pro:
+                # Check if current product is greater than the previous product
+                gre_pro = prod
+                # If current product is greater, then replace greater product with current product
         return gre_pro
     else:
         return 'Length of number should be greater than n. n must always be a natural number.'
