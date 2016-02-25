@@ -7,6 +7,12 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.'''
 
 def pyt_tri_pro(n):
+    """
+
+    :param n: Maximum number to search for. In this case, it is 500 because as the problem states,
+            there is only one such triplet.
+    :return: Product of the Pythogorean triplet whose sum is 1000.
+    """
     for a in range(1,n): # a is the smallest number
         for b in range(a,n): # b is the middle number
             for c in range(b,n): # c is the largest number
