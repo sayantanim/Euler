@@ -7,15 +7,16 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.'''
 
 def pyt_tri_pro(n):
-    for a in range(1,n):
-        for b in range(a,n):
-            for c in range(b,n):
-                if a**2 + b**2 == c**2:
+    for a in range(1,n): # a is the smallest number
+        for b in range(a,n): # b is the middle number
+            for c in range(b,n): # c is the largest number
+                if a**2 + b**2 == c**2: # Pythogorus Theorem
                     if a + b + c == 1000:
                         pro = a*b*c
-                        # print(a,b,c,pro)
     return pro
 
-print(pyt_tri_pro(500))
+
+def test_Euler_9():
+    assert pyt_tri_pro(500) == 31875000
 
 
