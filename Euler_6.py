@@ -26,7 +26,7 @@ def diff_sum_pwr(min_num, max_num, pwr):
     :param pwr: Number raised to the power
     :return: Difference between power of sum and sum of power
     """
-    """ ..Note: Fails when sum of numbers (not squared) is negative and raised to the power of root.
+    """ Note: Fails when sum of numbers (not squared) is negative and raised to the power of root.
     Because it becomes a complex number. If round is removed, it gives a value but doesn't mean much."""
 
     if int(max_num) > 0 and int(min_num) > 0:
