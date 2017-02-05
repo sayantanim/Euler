@@ -21,11 +21,14 @@ sum.'''
 def diff_sum_pwr(min_num, max_num, pwr):
     """
 
-    :param min_num:
-    :param max_num:
-    :param pwr:
-    :return:
+    :param min_num: Minimum number
+    :param max_num: Maximum number
+    :param pwr: Number raised to the power
+    :return: Difference between power of sum and sum of power
     """
+    """ ..Note: Fails when sum of numbers (not squared) is negative and raised to the power of root.
+    Because it becomes a complex number. If round is removed, it gives a value but doesn't mean much."""
+
     if int(max_num) > 0 and int(min_num) > 0:
         sum_pwr = sum(map(lambda i: i ** pwr, range(int(min_num), int(max_num) + 1)))
         pwr_sum = sum(map(lambda i: i, range(int(min_num), int(max_num) + 1))) ** pwr
@@ -37,8 +40,6 @@ def diff_sum_pwr(min_num, max_num, pwr):
 
 
 def test_euler_6():
-    # Fails when sum of numbers (not squared) is -ve and raised to the
-    # power of root. Because it becomes a complex number. If round is removed, it gives a value but doesn't mean much.
     assert diff_sum_pwr(1, 10, 2) == 2640
     assert diff_sum_pwr(5, 100, 3) == 127998561600
     assert diff_sum_pwr(2, 100, 1 / 2) == -599.41
